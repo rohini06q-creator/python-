@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend Test</title>
+</head>
+<body>
+    <h1>Frontend Connected to Backend!</h1>
+    <button id="btn">Get Message from Backend</button>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            fetch('/api/message')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            })
+        });
+    </script>
+</body>
+</html>
